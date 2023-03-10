@@ -1,0 +1,94 @@
+<h2>Template Basics</h2>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <form (ngSubmit)="saveForm()" #myform="ngForm" autocomplete="off">
+      <!-- input product -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Product</label>
+        <div class="col-sm-9">
+          <input
+            [ngModel]="initForm.product"
+            name="product"
+            type="text"
+            class="form-control"
+            placeholder="product name"
+            required
+            minlength="3"
+          />
+          <span class="form-text text-danger" *ngIf="nameValid()"
+            >required 3 letters</span
+          >
+        </div>
+      </div>
+
+      <!-- input price -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Price</label>
+        <div class="col-sm-9">
+          <input
+            [ngModel]="initForm.price"
+            name="price"
+            type="number"
+            class="form-control"
+            placeholder="product price"
+            required
+            min="0"
+          />
+          <span class="form-text text-danger" *ngIf="priceValid()"
+            >Price min 0 or more</span
+          >
+        </div>
+      </div>
+
+      <!-- input exist -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Stock</label>
+        <div class="col-sm-9">
+          <input
+            [ngModel]="initForm.stock"
+            name="stock"
+            type="number"
+            class="form-control"
+            placeholder="product stock"
+            customMin
+            [minimo]="0"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button
+            type="submit"
+            class="btn btn-primary float-end"
+            [disabled]="myform.invalid"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <span>Valid</span>
+    <pre>{{ myform.valid }}</pre>
+
+    <span>Pristine // no changes</span>
+    <pre>{{ myform.pristine }}</pre>
+
+    <span>Touched</span>
+    <pre>{{ myform.touched }}</pre>
+
+    <span>Values</span>
+    <pre>{{ myform.value | json }}</pre>
+
+    <span>Custom Directives</span>
+    <pre>{{ myform.controls["stock"]?.errors | json }}</pre>
+  </div>
+</div>
