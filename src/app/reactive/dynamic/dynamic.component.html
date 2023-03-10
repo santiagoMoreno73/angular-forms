@@ -1,1 +1,51 @@
-<p>dynamic works!</p>
+<h2>Reactive Dynamics</h2>
+<hr />
+
+<form [formGroup]="myForm" (ngSubmit)="saveForm()" autocomplete="off">
+  <!-- name -->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Name</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        placeholder="person name"
+      />
+      <span class="form-text text-danger" *ngIf="fieldInvalid('name')"
+        >Min 3 letters</span
+      >
+    </div>
+  </div>
+
+  <!-- add favorite -->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Add</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="add favorite" />
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Favorites</label>
+    <div class="col-sm-9">
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" />
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button type="submit" class="btn btn-primary float-end">Save</button>
+    </div>
+  </div>
+</form>
+
+<!-- 
+<span>Person</span>
+<pre>{{ person | json }}</pre> -->
