@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-interface menuItem {
-  text: string;
+interface MenuItem {
+  title: string;
   route: string;
 }
 
@@ -17,33 +17,41 @@ interface menuItem {
   ],
 })
 export class SidemenuComponent {
-  templateMenu: menuItem[] = [
+  public templateMenu: MenuItem[] = [
     {
-      text: 'Basics',
+      title: 'Basics',
       route: './template/basics',
     },
     {
-      text: 'Dynamics',
+      title: 'Dynamics',
       route: './template/dynamics',
     },
     {
-      text: 'Switches',
+      title: 'Switches',
       route: './template/switches',
     },
   ];
 
-  reactiveMenu: menuItem[] = [
+  public reactiveMenu: MenuItem[] = [
     {
-      text: 'Basics',
+      title: 'Basics',
       route: './reactive/basics',
     },
     {
-      text: 'Dynamics',
+      title: 'Dynamics',
       route: './reactive/dynamics',
     },
     {
-      text: 'Switches',
+      title: 'Switches',
       route: './reactive/switches',
     },
+  ];
+
+
+  public authMenu: MenuItem[] = [
+    {
+      title: 'Register',
+      route: './auth',
+    }
   ];
 }

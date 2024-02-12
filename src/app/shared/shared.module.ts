@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 import { TemplateModule } from '../template/template.module';
 
 @NgModule({
@@ -10,4 +10,4 @@ import { TemplateModule } from '../template/template.module';
   exports: [SidemenuComponent, TemplateModule],
   imports: [CommonModule, RouterModule],
 })
-export class SharedModule {}
+export class SharedModule { }
