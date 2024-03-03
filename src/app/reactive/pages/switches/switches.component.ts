@@ -18,7 +18,7 @@ export class SwitchesComponent implements OnInit {
     notifications: true,
   };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.myForm.reset({ ...this.person, terms: false });
@@ -34,10 +34,15 @@ export class SwitchesComponent implements OnInit {
     });
   }
 
+  isInvalidField(field: string): boolean | null {
+    return (this.myForm.controls[field].errors && this.myForm.controls[field].touched);
+  }
+
   saveForm() {
     if (this.myForm.invalid) {
-      return;
-    }
+      this.myForm.markAllAsTouched();
+      return
+    };
 
     const formValue = { ...this.myForm.value };
     delete formValue.controls['terms'];
